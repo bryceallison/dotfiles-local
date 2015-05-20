@@ -1,0 +1,16 @@
+# Setup
+alias dot='cd ~/dotfiles-local'
+alias laptop='cd ~/Code/laptop-local'
+
+# Code
+alias code='cd ~/Code'
+
+# Projects
+alias eb='cd ~/Code/elasticbible-api'
+alias ebweb='cd ~/Code/elasticbible-web'
+alias rbible='cd ~/Code/react-bible'
+alias sl='cd ~/Code/scripturelibrary'
+
+
+# Git
+

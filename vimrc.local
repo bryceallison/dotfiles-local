@@ -1,0 +1,227 @@
+""
+"" Basic Settings
+""
+
+let mapleader=","
+set mouse=a
+set noswapfile     " Don't make backups.
+set nowritebackup " Even if you did make a backup, don't keep it around.
+set nobackup
+syntax on
+set virtualedit=block
+" set nonumber
+set noswapfile
+set nospell
+set ic
+set scs
+set nofoldenable
+set autoread
+
+""
+"" Visual Settings
+""
+
+set t_Co=256
+colorscheme jellybeans
+
+""
+"" Whitespace
+""
+
+set nowrap                        " don't wrap lines
+set tabstop=4                     " a tab is two spaces
+set shiftwidth=4                  " an autoindent (with <<) is two spaces
+set expandtab                     " use spaces, not tabs
+set list                          " Show invisible characters
+set backspace=indent,eol,start    " backspace through everything in insert mode
+
+
+""
+"" Searching
+""
+
+set hlsearch    " highlight matches
+set incsearch   " incremental searching
+set ignorecase  " searches are case insensitive...
+set smartcase   " ... unless they contain at least one capital letter
+
+
+""
+"" Ignore
+""
+
+" Ignore mac ds_store files
+set wildignore+=*.DS_Store
+
+" ignore _build directories
+set wildignore+=*/_build**
+
+" Ignore bundler and sass cache
+set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
+
+" Ignore rails temporary asset caches
+set wildignore+=*/tmp/cache/assets/*/sprockets/*,*/tmp/cache/assets/*/sass/*
+
+
+""
+"" Mappings
+""
+
+" format the entire file
+nnoremap <leader>fef :normal! gg=G``<CR>
+
+" upper/lower word
+nmap <leader>u mQviwU`Q
+nmap <leader>l mQviwu`Q
+
+" upper/lower first char of word
+nmap <leader>U mQgewvU`Q
+nmap <leader>L mQgewvu`Q
+
+" Underline the current line with '='
+nmap <silent> <leader>ul :t.<CR>Vr=
+
+" set text wrapping toggles
+nmap <silent> <leader>tw :set invwrap<CR>:set wrap?<CR>
+
+" find merge conflict markers
+nmap <silent> <leader>fc <ESC>/\v^[<=>]{7}( .*\|$)<CR>
+
+" Toggle hlsearch with <leader>hs
+nmap <leader>hs :set hlsearch! hlsearch?<CR>
+
+" fast scrolling using control when in command mode (keeping the j/k paradigm)
+" map <C-j> <C-d>
+" map <C-k> <C-u>
+
+" Swap two words
+nmap <silent> gw :s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR>`'
+
+" Always gets out of autocomplete's and just lets you enter the newline!
+imap <C-Cr> <Left><Right><Cr>
+
+" Currently using <C-l> for moving between tmux panes
+" " ==== My favorite way of avoiding the escape key - feel free to delete all this
+" " == c-l escapes and saves, avoid the pinky stretch
+" vmap <C-l> <Esc><Cr>
+" imap <C-l> <Esc>l
+" map <c-l> <Esc>
+" "while selecting (for use in snippets c-l cancels out)
+" smap <C-l> <Esc>
+" " While commanding
+" cmap <C-l> <C-c>
+
+" Huge saver! Why do you need to press shift when executing a command?
+nnoremap ; :
+
+" Use the space bar to cycle through buffers
+" nnoremap c :nunmap c<Cr>
+" A
+" map <C-[> :bprevious<cr>
+map <C-]> :bnext<cr>
+" map <C-`> :bnext<cr>
+" map <C-s-`> :bnext<cr>
+
+
+
+" ==== Window and split navigation ===
+" "Tab through your splits! (Shift tab won't ever work on terminal :( )
+set winwidth=1
+nmap <Tab> <c-w><c-w>
+nmap <s-Tab> <c-w><s-w>
+
+" TComment
+"Toggle comment
+"mapping to `gc` doesn't toggle one visually selected line - only multiples.
+vmap <C-/> <c-_><c-_>
+vmap <C-s-/> <c-_>b
+nmap <C-/> gc$
+
+
+" UltiSnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+" let g:UltiSnipsSnippetsDir=[$HOME.'/.ultisnippets']
+" let g:UltiSnipsSnippetDirectories=["myultisnippets"]
+let g:UltiSnipsEditSplit="vertical"
+
+""
+"" NERDTree Settings
+""
+
+" Close vim if the only window left open is a NERDTree?
+" A
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" let NERDTreeMapOpenInTab='<ENTER>'
+
+" nice arrow
+let g:NERDTreeDirArrows = 1
+" not so much cruft
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeShowBookmarks = 1
+hi def link NERDTreeRO Normal
+hi def link NERDTreePart StatusLine
+hi def link NERDTreeDirSlash Directory
+hi def link NERDTreeCurrentNode Search
+hi def link NERDTreeCWD Normal
+let g:NERDChristmasTree = 0
+
+map <C-e> :NERDTreeToggle<CR>
+
+"NERDTree Tabs
+let g:nerdtree_tabs_open_on_console_startup=1
+
+" Autocomplete options
+set completeopt=menuone
+let g:acp_ignorecaseOption = 1
+
+
+
+
+
+""
+"" Unimpaired
+""
+
+" Normal Mode: Bubble single lines
+nmap <C-Up> [e
+nmap <C-Down> ]e
+
+" Visual Mode: Bubble multiple lines
+vmap <C-Up> [e
+vmap <C-Down> ]e
+
+
+
+""
+"" Vim Airline
+""
+
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
+
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
+
+" User powerline fonts
+let g:airline_powerline_fonts = 0
+
+" Separators
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+
+" Buffers as tab
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+
+""
+"" Automatically reload .vimrc on save
+""
+
+augroup myvimrchooks
+    au!
+    autocmd bufwritepost .vimrc source ~/.vimrc
+augroup END
+
