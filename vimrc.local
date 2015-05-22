@@ -181,7 +181,11 @@ set completeopt=menuone
 let g:acp_ignorecaseOption = 1
 
 
+""
+"" Ctrl-P
+""
 
+let g:ctrlp_dont_split = 'nerdtree'
 
 
 ""
