@@ -90,6 +90,9 @@ nmap <silent> <leader>fc <ESC>/\v^[<=>]{7}( .*\|$)<CR>
 " Toggle hlsearch with <leader>hs
 nmap <leader>hs :set hlsearch! hlsearch?<CR>
 
+" close buffers
+nmap <C-w> :bd<CR>
+
 " fast scrolling using control when in command mode (keeping the j/k paradigm)
 " map <C-j> <C-d>
 " map <C-k> <C-u>
