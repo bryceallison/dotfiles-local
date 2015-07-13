@@ -4,13 +4,14 @@ alias laptop='cd ~/Code/laptop-local'
 
 # Code
 alias code='cd ~/Code'
+alias abs='cd ~/Code/americanbible'
 
 # Projects
-alias eb='cd ~/Code/elasticbible-api'
-alias ebweb='cd ~/Code/elasticbible-web'
-alias rbible='cd ~/Code/react-bible'
-alias sl='cd ~/Code/scripturelibrary'
+alias ebapi='cd ~/Code/americanbible/elasticbible-api'
+alias ebweb='cd ~/Code/americanbible/elasticbible-web'
+alias rbible='cd ~/Code/americanbible/react-bible'
+alias sl='cd ~/Code/americanbible/scripturelibrary'
 
 
 # Git
-
+alias gitc='git clone git@github.com'
